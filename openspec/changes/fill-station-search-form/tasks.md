@@ -19,7 +19,7 @@
 
 ---
 
-### Task 1: Selectors + config + search_form module
+### [x] Task 1: Selectors + config + search_form module
 
 **Files:**
 - Modify: `booker/selectors.py`
@@ -148,7 +148,7 @@ git commit -m "feat: add SEARCH_FORM selectors, search config, and search_form m
 
 ---
 
-### Task 2: Wire fill_search_form into main.py
+### [x] Task 2: Wire fill_search_form into main.py
 
 **Files:**
 - Modify: `main.py`
@@ -198,4 +198,27 @@ Expected: all pass (or "No tests found — OK")
 ```bash
 git add main.py
 git commit -m "feat: wire fill_search_form into main after wait_until"
+```
+
+---
+
+### Revision 1 - Task 3: Untrack config.yaml from git
+
+**Files:**
+- No source files modified — git index only
+
+**Interfaces:**
+- Consumes: nothing
+- Produces: `config.yaml` removed from git tracking
+
+- [ ] **Step 1: Untrack config.yaml**
+
+```bash
+git rm --cached config.yaml
+```
+
+- [ ] **Step 2: Commit**
+
+```bash
+git commit -m "chore: untrack config.yaml (contains credentials, covered by .gitignore)"
 ```

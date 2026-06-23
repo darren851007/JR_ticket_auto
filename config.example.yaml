@@ -1,0 +1,5 @@
+account:
+  email: "your-email@example.com"
+  password: "your-password"
+
+sale_open_time: "2025/7/1 09:00"   # YYYY/M/D HH:MM (JST)

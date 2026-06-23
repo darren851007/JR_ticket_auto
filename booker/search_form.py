@@ -17,8 +17,8 @@ async def fill_search_form(page: Page, config: dict) -> None:
 
     hour_str, minute_str = search["time"].split(":")
     hour = hour_str.zfill(2)
-    rounded = round(int(minute_str) / 5) * 5
-    minute = "55" if rounded >= 60 else str(rounded).zfill(2)
+    rounded = min(round(int(minute_str) / 5) * 5, 55)
+    minute = str(rounded).zfill(2)
 
     logger.info(f"Setting departure station: {search['departure_station']}")
     await _js_set(page, SEARCH_FORM["departure_input"], search["departure_station"])
@@ -53,6 +53,7 @@ async def _js_set(page: Page, selector: str, value: str) -> None:
     await page.evaluate(
         """([selector, value]) => {
             const el = document.querySelector(selector);
+            if (!el) throw new Error('Element not found: ' + selector);
             el.value = value;
             el.dispatchEvent(new Event('input', { bubbles: true }));
             el.dispatchEvent(new Event('change', { bubbles: true }));

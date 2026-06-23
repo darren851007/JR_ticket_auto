@@ -13,7 +13,12 @@ async def wait_until(target_dt: datetime) -> None:
         logger.warning("sale_open_time is in the past — proceeding immediately")
         return
     logger.info(f"Waiting {delta:.1f}s until {target_dt.strftime('%Y-%m-%d %H:%M:%S')} JST")
-    await asyncio.sleep(delta)
+    while True:
+        remaining = (target_dt - datetime.now(tz=JST)).total_seconds()
+        if remaining <= 0:
+            break
+        logger.info(f"T-{remaining:.0f}s")
+        await asyncio.sleep(min(5, remaining))
 
 def parse_sale_open_time(raw: str) -> datetime:
     for fmt in ("%Y/%m/%d %H:%M", "%Y-%m-%d %H:%M:%S"):

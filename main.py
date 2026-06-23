@@ -21,8 +21,8 @@ async def main():
         await login(page, config)
         await wait_until(sale_time)
         logger.info("Sale is open — ready to book")
-        logger.info("Close the browser window when done.")
-        await page.wait_for_close()
+        logger.info("Press Ctrl+C to exit (browser stays open).")
+        await asyncio.Event().wait()
 
     except KeyboardInterrupt:
         logger.info("Stopped by user — browser left open")
@@ -30,8 +30,8 @@ async def main():
         logger.error(f"Error: {e}")
         await mgr.screenshot(page, "error")
         notify_failure(str(e))
-        logger.info("Browser left open for inspection. Close manually when done.")
-        await page.wait_for_close()
+        logger.info("Browser left open for inspection. Press Ctrl+C to exit.")
+        await asyncio.Event().wait()
 
 if __name__ == "__main__":
     asyncio.run(main())

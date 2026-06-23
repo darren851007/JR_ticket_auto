@@ -1,7 +1,9 @@
 LOGIN = {
-    "login_button":        "a[href*='login'], button:has-text('Log in'), a:has-text('Login')",
-    "email_input":         "input[type='email'], input[name*='mail'], input[id*='mail']",
-    "password_input":      "input[type='password']",
-    "submit_button":       "button[type='submit'], input[type='submit']",
-    "logged_in_indicator": "a[href*='logout'], span:has-text('Log out'), a:has-text('Sign out')",
+    "login_button":        "xpath=/html/body/form[2]/div/header/article/section/div/div[2]/a",
+    "email_input":         "#TxtUserID",
+    "password_input":      "#TxtPassword",
+    "submit_button":       "#BtnEkinetLogin",
+    "logged_in_indicator": "div.btn02__text:has-text('Purchase tickets')",
+    "route_search_page":   "#BtnSelectFromStation",
+    "station_search_page": "#TxtRideStation",
 }

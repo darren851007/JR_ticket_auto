@@ -18,7 +18,7 @@
 
 ---
 
-### Task 1: Selectors + config + train_select module
+### [x] Task 1: Selectors + config + train_select module
 
 **Files:**
 - Modify: `booker/selectors.py`
@@ -159,7 +159,7 @@ git commit -m "feat: add TRAIN_SELECT selectors, train config, and train_select 
 
 ---
 
-### Task 2: Wire select_train into main.py
+### [x] Task 2: Wire select_train into main.py
 
 **Files:**
 - Modify: `main.py`

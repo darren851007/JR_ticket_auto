@@ -11,7 +11,7 @@ def _mac_notify(title: str, message: str) -> None:
 
 def notify_success(screenshot_path: str) -> None:
     logger.info(f"Success — screenshot: {screenshot_path}")
-    _mac_notify("JR Ticket Bot", f"Booking ready — check browser")
+    _mac_notify("JR Ticket Bot", "Booking ready — check browser")
 
 def notify_failure(message: str) -> None:
     logger.error(f"Failure: {message}")

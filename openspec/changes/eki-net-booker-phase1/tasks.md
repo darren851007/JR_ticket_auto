@@ -20,7 +20,7 @@
 
 ---
 
-### Task 1: Project scaffolding and utils layer
+### [x] Task 1: Project scaffolding and utils layer
 
 **Files:**
 - Create: `requirements.txt`
@@ -153,7 +153,7 @@ git commit -m "feat: project scaffolding and utils layer"
 
 ---
 
-### Task 2: Scheduler module
+### [x] Task 2: Scheduler module
 
 **Files:**
 - Create: `booker/scheduler.py`
@@ -223,7 +223,7 @@ git commit -m "feat: scheduler — wait_until and parse_sale_open_time"
 
 ---
 
-### Task 3: Browser manager
+### [x] Task 3: Browser manager
 
 **Files:**
 - Create: `booker/browser.py`
@@ -306,7 +306,7 @@ git commit -m "feat: BrowserManager with start, screenshot, close"
 
 ---
 
-### Task 4: Login module
+### [x] Task 4: Login module
 
 **Files:**
 - Create: `booker/selectors.py`
@@ -380,7 +380,7 @@ git commit -m "feat: login module for eki-net"
 
 ---
 
-### Task 5: main.py integration
+### [x] Task 5: main.py integration
 
 **Files:**
 - Create: `main.py`

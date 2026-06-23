@@ -6,6 +6,7 @@ from booker.browser import BrowserManager
 from booker.login import login
 from booker.scheduler import wait_until, parse_sale_open_time
 from booker.search_form import fill_search_form
+from booker.train_select import select_train
 
 logger = get_logger("main")
 
@@ -23,7 +24,9 @@ async def main():
         await wait_until(sale_time)
         logger.info("Sale is open — filling search form")
         await fill_search_form(page, config)
-        logger.info("Search submitted — ready for next step")
+        logger.info("Search submitted — selecting train")
+        await select_train(page, config)
+        logger.info("Train selected — ready for next step")
         logger.info("Press Ctrl+C to exit (browser stays open).")
         await asyncio.Event().wait()
 

@@ -30,7 +30,7 @@
 - Consumes: `SEARCH_FORM` dict from `booker/selectors.py`; `config["search"]` dict
 - Produces: `async def fill_search_form(page: Page, config: dict) -> None` in `booker/search_form.py`
 
-- [ ] **Step 1: Add `SEARCH_FORM` dict to `booker/selectors.py`**
+- [x] **Step 1: Add `SEARCH_FORM` dict to `booker/selectors.py`**
 
 Append after the `LOGIN` dict:
 
@@ -49,7 +49,7 @@ SEARCH_FORM = {
 }
 ```
 
-- [ ] **Step 2: Add `search` block to `config.yaml`**
+- [x] **Step 2: Add `search` block to `config.yaml`**
 
 Append to the end of `config.yaml`:
 
@@ -64,7 +64,7 @@ search:
   children:          0
 ```
 
-- [ ] **Step 3: Create `booker/search_form.py`**
+- [x] **Step 3: Create `booker/search_form.py`**
 
 ```python
 from datetime import datetime
@@ -130,7 +130,7 @@ async def _js_set(page: Page, selector: str, value: str) -> None:
     )
 ```
 
-- [ ] **Step 4: Verify existing tests still pass**
+- [x] **Step 4: Verify existing tests still pass**
 
 ```bash
 cd /Users/liuda/VsCodeProjects/JR_ticket_auto
@@ -139,7 +139,7 @@ pytest --tb=short 2>/dev/null || echo "No tests found — OK"
 
 Expected: all pass (or "No tests found — OK")
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add booker/selectors.py booker/search_form.py config.yaml
@@ -156,7 +156,7 @@ git commit -m "feat: add SEARCH_FORM selectors, search config, and search_form m
 **Interfaces:**
 - Consumes: `fill_search_form(page, config)` from `booker.search_form`
 
-- [ ] **Step 1: Add import to `main.py`**
+- [x] **Step 1: Add import to `main.py`**
 
 Add this line after the existing imports (around line 6):
 
@@ -164,7 +164,7 @@ Add this line after the existing imports (around line 6):
 from booker.search_form import fill_search_form
 ```
 
-- [ ] **Step 2: Call `fill_search_form` after `wait_until`**
+- [x] **Step 2: Call `fill_search_form` after `wait_until`**
 
 Replace:
 ```python
@@ -184,7 +184,7 @@ With:
         await asyncio.Event().wait()
 ```
 
-- [ ] **Step 3: Verify existing tests still pass**
+- [x] **Step 3: Verify existing tests still pass**
 
 ```bash
 cd /Users/liuda/VsCodeProjects/JR_ticket_auto
@@ -193,7 +193,7 @@ pytest --tb=short 2>/dev/null || echo "No tests found — OK"
 
 Expected: all pass (or "No tests found — OK")
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add main.py
@@ -211,13 +211,13 @@ git commit -m "feat: wire fill_search_form into main after wait_until"
 - Consumes: nothing
 - Produces: `config.yaml` removed from git tracking
 
-- [ ] **Step 1: Untrack config.yaml**
+- [x] **Step 1: Untrack config.yaml**
 
 ```bash
 git rm --cached config.yaml
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git commit -m "chore: untrack config.yaml (contains credentials, covered by .gitignore)"

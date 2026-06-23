@@ -34,9 +34,11 @@ async def fill_search_form(page: Page, config: dict) -> None:
     await page.locator(SEARCH_FORM["minute_select"]).select_option(minute)
 
     time_type = search.get("time_type", "departure")
-    radio_key = "arrival_radio" if time_type == "arrival" else "departure_radio"
-    logger.info(f"Selecting time type: {time_type}")
-    await page.locator(SEARCH_FORM[radio_key]).click()
+    if time_type == "arrival":
+        logger.info("Selecting time type: arrival")
+        await page.locator(SEARCH_FORM["arrival_radio"]).click()
+    else:
+        logger.info("Selecting time type: departure (default, skipping click)")
 
     logger.info(f"Selecting adults: {search['adults']}")
     await page.locator(SEARCH_FORM["adults_select"]).select_option(str(search["adults"]))

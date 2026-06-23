@@ -28,6 +28,7 @@ async def login(page: Page, config: dict) -> None:
     logger.info("Waiting for Route Search page to load...")
     await page.locator(LOGIN["route_search_page"]).wait_for(state="visible", timeout=0)
     logger.info("Route Search page loaded — ready to proceed")
+    await asyncio.sleep(0.5)
     await page.locator(LOGIN["route_search_page"]).click()
     logger.info("Clicked 'Search by Station'")
 

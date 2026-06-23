@@ -202,7 +202,7 @@ git commit -m "feat: wire fill_search_form into main after wait_until"
 
 ---
 
-### Revision 1 - Task 3: Untrack config.yaml from git
+### [x] Revision 1 - Task 3: Untrack config.yaml from git
 
 **Files:**
 - No source files modified — git index only

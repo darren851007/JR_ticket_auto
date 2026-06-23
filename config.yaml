@@ -1,0 +1,14 @@
+account:
+  email: "darren851007@gmail.com"
+  password: "d0962037850"
+
+sale_open_time: "2026/6/23 12:00"   # YYYY/M/D HH:MM (JST)
+
+search:
+  departure_station: "TOKYO"
+  arrival_station:   "NAGAOKA"
+  date:              "7/1"        # M/D (year auto-filled from current JST year)
+  time:              "10:00"      # HH:MM
+  time_type:         "departure"  # departure | arrival
+  adults:            1
+  children:          0

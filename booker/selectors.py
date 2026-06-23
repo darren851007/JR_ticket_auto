@@ -7,3 +7,16 @@ LOGIN = {
     "route_search_page":   "#BtnSelectFromStation",
     "station_search_page": "#TxtRideStation",
 }
+
+SEARCH_FORM = {
+    "departure_input": "#TxtRideStation",
+    "arrival_input":   "#TxtGetoffStation",
+    "date_select":     "#DdlBoardingDate",
+    "hour_select":     "select[name='Hour']",
+    "minute_select":   "select[name='Minute']",
+    "departure_radio": "#RdiDepartureArrivalChoice1",
+    "arrival_radio":   "#RdiDepartureArrivalChoice2",
+    "adults_select":   "#DdlAdultNumber",
+    "children_select": "#DdlChildNumber",
+    "search_button":   "#BtnTrainSearch",
+}

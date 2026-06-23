@@ -5,6 +5,7 @@ from utils.notify import notify_failure
 from booker.browser import BrowserManager
 from booker.login import login
 from booker.scheduler import wait_until, parse_sale_open_time
+from booker.search_form import fill_search_form
 
 logger = get_logger("main")
 
@@ -20,7 +21,9 @@ async def main():
     try:
         await login(page, config)
         await wait_until(sale_time)
-        logger.info("Sale is open — ready to book")
+        logger.info("Sale is open — filling search form")
+        await fill_search_form(page, config)
+        logger.info("Search submitted — ready for next step")
         logger.info("Press Ctrl+C to exit (browser stays open).")
         await asyncio.Event().wait()
 

@@ -20,3 +20,11 @@ SEARCH_FORM = {
     "children_select": "#DdlChildNumber",
     "search_button":   "#BtnTrainSearch",
 }
+
+TRAIN_SELECT = {
+    "results_section": "#trainSearch_result",
+    "train_name":      "h3.ts_resultTrainName",
+    "departure_time":  "li.ts_resultDetailOutlineWItemDep",
+    "expand_button":   "button.ts_DetailTrainCheckBtn",
+    "seat_list":       "ul.selService_formTrainSeatSelList",
+}

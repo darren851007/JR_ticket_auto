@@ -1,0 +1,19 @@
+account:
+  email: "darren851007@gmail.com"
+  password: "d0962037850"
+
+sale_open_time: "2026/6/23 16:00"   # YYYY/M/D HH:MM (JST)
+
+search:
+  departure_station: "TOKYO"
+  arrival_station:   "NAGAOKA"
+  date:              "7/1"        # M/D (year auto-filled from current JST year)
+  time:              "12:40"      # HH:MM
+  time_type:         "departure"  # departure | arrival
+  adults:            2
+  children:          0
+
+train:
+  name:           "Toki 307"   # 車次名稱（優先比對，大小寫不分）
+  departure_time: "10:04"      # 出發時刻 fallback HH:MM
+  seat_class:     "reserved"   # reserved | non_reserved | green | gran_class

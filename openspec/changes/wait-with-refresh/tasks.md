@@ -17,7 +17,7 @@
 
 ---
 
-### Task 1: 修改 `wait_until` 加入頁面重整邏輯，並更新 `main.py`
+### [x] Task 1: 修改 `wait_until` 加入頁面重整邏輯，並更新 `main.py`
 
 **Files:**
 - Modify: `booker/scheduler.py`
@@ -26,7 +26,7 @@
 **Interfaces:**
 - Produces: `async def wait_until(target_dt: datetime, page=None) -> None`
 
-- [ ] **Step 1: 修改 `booker/scheduler.py`**
+- [x] **Step 1: 修改 `booker/scheduler.py`**
 
 將 `wait_until` 改為以下內容（完整替換整個函式）：
 
@@ -48,7 +48,7 @@ async def wait_until(target_dt: datetime, page=None) -> None:
         await asyncio.sleep(min(5, remaining))
 ```
 
-- [ ] **Step 2: 修改 `main.py`**
+- [x] **Step 2: 修改 `main.py`**
 
 將第 29 行：
 ```python
@@ -59,7 +59,7 @@ async def wait_until(target_dt: datetime, page=None) -> None:
         await wait_until(sale_time, page=page)
 ```
 
-- [ ] **Step 3: 確認現有測試仍通過**
+- [x] **Step 3: 確認現有測試仍通過**
 
 ```bash
 pytest --tb=short -q
@@ -67,7 +67,7 @@ pytest --tb=short -q
 
 若無測試檔案，輸出應為 `no tests ran`，視為通過。
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add booker/scheduler.py main.py

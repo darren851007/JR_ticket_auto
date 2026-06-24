@@ -19,7 +19,7 @@
 
 ---
 
-### Task 1: Selectors + seat_select module
+### [x] Task 1: Selectors + seat_select module
 
 **Files:**
 - Modify: `booker/selectors.py`
@@ -29,7 +29,7 @@
 - Consumes: `SEAT_SELECT` dict from `booker/selectors.py`
 - Produces: `async def select_seat(page: Page, config: dict) -> None` in `booker/seat_select.py`
 
-- [ ] **Step 1: Add `SEAT_SELECT` dict to `booker/selectors.py`**
+- [x] **Step 1: Add `SEAT_SELECT` dict to `booker/selectors.py`**
 
 Append after the `TICKET_TYPE_SELECT` dict:
 
@@ -40,7 +40,7 @@ SEAT_SELECT = {
 }
 ```
 
-- [ ] **Step 2: Create `booker/seat_select.py`**
+- [x] **Step 2: Create `booker/seat_select.py`**
 
 ```python
 import asyncio
@@ -61,7 +61,7 @@ async def select_seat(page: Page, config: dict) -> None:
     logger.info("Seat selection confirmed")
 ```
 
-- [ ] **Step 3: Verify existing tests still pass**
+- [x] **Step 3: Verify existing tests still pass**
 
 ```bash
 cd /Users/liuda/VsCodeProjects/JR_ticket_auto
@@ -70,7 +70,7 @@ pytest --tb=short 2>/dev/null || echo "No tests found — OK"
 
 Expected: all pass (or "No tests found — OK")
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add booker/selectors.py booker/seat_select.py
@@ -79,7 +79,7 @@ git commit -m "feat: add SEAT_SELECT selectors and seat_select module"
 
 ---
 
-### Task 2: Wire select_seat into main.py
+### [x] Task 2: Wire select_seat into main.py
 
 **Files:**
 - Modify: `main.py`
@@ -87,7 +87,7 @@ git commit -m "feat: add SEAT_SELECT selectors and seat_select module"
 **Interfaces:**
 - Consumes: `select_seat(page, config)` from `booker.seat_select`
 
-- [ ] **Step 1: Add import to `main.py`**
+- [x] **Step 1: Add import to `main.py`**
 
 Add after `from booker.ticket_type_select import select_ticket_type`:
 
@@ -95,7 +95,7 @@ Add after `from booker.ticket_type_select import select_ticket_type`:
 from booker.seat_select import select_seat
 ```
 
-- [ ] **Step 2: Call `select_seat` after `select_ticket_type` in `main.py`**
+- [x] **Step 2: Call `select_seat` after `select_ticket_type` in `main.py`**
 
 Replace:
 ```python
@@ -115,7 +115,7 @@ With:
         await asyncio.Event().wait()
 ```
 
-- [ ] **Step 3: Verify existing tests still pass**
+- [x] **Step 3: Verify existing tests still pass**
 
 ```bash
 cd /Users/liuda/VsCodeProjects/JR_ticket_auto
@@ -124,7 +124,7 @@ pytest --tb=short 2>/dev/null || echo "No tests found — OK"
 
 Expected: all pass (or "No tests found — OK")
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add main.py

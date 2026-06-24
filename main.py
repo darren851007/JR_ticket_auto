@@ -26,7 +26,7 @@ async def main():
 
     try:
         await login(page, config)
-        await wait_until(sale_time)
+        await wait_until(sale_time, page=page)
         logger.info("Sale is open — filling search form")
         await fill_search_form(page, config)
         logger.info("Search submitted — selecting train")

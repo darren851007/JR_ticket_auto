@@ -6,7 +6,7 @@ from utils.logger import get_logger
 logger = get_logger("scheduler")
 JST = ZoneInfo("Asia/Tokyo")
 
-async def wait_until(target_dt: datetime) -> None:
+async def wait_until(target_dt: datetime, page=None) -> None:
     now = datetime.now(tz=JST)
     delta = (target_dt - now).total_seconds()
     if delta <= 0:
@@ -17,7 +17,9 @@ async def wait_until(target_dt: datetime) -> None:
         remaining = (target_dt - datetime.now(tz=JST)).total_seconds()
         if remaining <= 0:
             break
-        logger.info(f"T-{remaining:.0f}s")
+        logger.info(f"距離開始搶票時間還剩: {remaining:.0f}s")
+        if page is not None:
+            await page.reload()
         await asyncio.sleep(min(5, remaining))
 
 def parse_sale_open_time(raw: str) -> datetime:

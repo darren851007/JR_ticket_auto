@@ -34,3 +34,8 @@ TICKET_TYPE_SELECT = {
     "regular":     "#BtnBuyATicketForMagneticTicket",
     "e_ticket":    "#BtnBuyATicketForICCard",
 }
+
+SEAT_SELECT = {
+    "page_anchor":    "#BtnToNext",
+    "confirm_button": "#BtnToNext",
+}

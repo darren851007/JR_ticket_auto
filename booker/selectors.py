@@ -39,3 +39,8 @@ SEAT_SELECT = {
     "page_anchor":    "#BtnToNext",
     "confirm_button": "#BtnToNext",
 }
+
+RECEIPT_INFO = {
+    "page_anchor":    "h2.selService_title:has-text('Receipt Information')",
+    "confirm_button": "#BtnToNext",
+}

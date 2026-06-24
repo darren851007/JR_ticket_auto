@@ -19,7 +19,7 @@
 
 ---
 
-### Task 1: Selectors + config + ticket_type_select module
+### [x] Task 1: Selectors + config + ticket_type_select module
 
 **Files:**
 - Modify: `booker/selectors.py`
@@ -30,7 +30,7 @@
 - Consumes: `TICKET_TYPE_SELECT` dict from `booker/selectors.py`; `config["ticket_type"]` string
 - Produces: `async def select_ticket_type(page: Page, config: dict) -> None` in `booker/ticket_type_select.py`
 
-- [ ] **Step 1: Add `TICKET_TYPE_SELECT` dict to `booker/selectors.py`**
+- [x] **Step 1: Add `TICKET_TYPE_SELECT` dict to `booker/selectors.py`**
 
 Append after the `TRAIN_SELECT` dict:
 
@@ -42,7 +42,7 @@ TICKET_TYPE_SELECT = {
 }
 ```
 
-- [ ] **Step 2: Add `ticket_type` field to `config.yaml`**
+- [x] **Step 2: Add `ticket_type` field to `config.yaml`**
 
 Append to the end of `config.yaml`:
 
@@ -50,7 +50,7 @@ Append to the end of `config.yaml`:
 ticket_type: "regular"   # regular | e_ticket (e_ticket not yet implemented)
 ```
 
-- [ ] **Step 3: Create `booker/ticket_type_select.py`**
+- [x] **Step 3: Create `booker/ticket_type_select.py`**
 
 ```python
 from playwright.async_api import Page
@@ -77,7 +77,7 @@ async def select_ticket_type(page: Page, config: dict) -> None:
         raise ValueError(f"Unknown ticket_type: {ticket_type!r}. Expected 'regular' or 'e_ticket'.")
 ```
 
-- [ ] **Step 4: Verify existing tests still pass**
+- [x] **Step 4: Verify existing tests still pass**
 
 ```bash
 cd /Users/liuda/VsCodeProjects/JR_ticket_auto
@@ -86,7 +86,7 @@ pytest --tb=short 2>/dev/null || echo "No tests found — OK"
 
 Expected: all pass (or "No tests found — OK")
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add booker/selectors.py booker/ticket_type_select.py
@@ -97,7 +97,7 @@ Note: do NOT add `config.yaml` — it is untracked (credentials, covered by `.gi
 
 ---
 
-### Task 2: Wire select_ticket_type into main.py
+### [x] Task 2: Wire select_ticket_type into main.py
 
 **Files:**
 - Modify: `main.py`
@@ -105,7 +105,7 @@ Note: do NOT add `config.yaml` — it is untracked (credentials, covered by `.gi
 **Interfaces:**
 - Consumes: `select_ticket_type(page, config)` from `booker.ticket_type_select`
 
-- [ ] **Step 1: Add import to `main.py`**
+- [x] **Step 1: Add import to `main.py`**
 
 Add after the existing imports (after `from booker.train_select import select_train`):
 
@@ -113,7 +113,7 @@ Add after the existing imports (after `from booker.train_select import select_tr
 from booker.ticket_type_select import select_ticket_type
 ```
 
-- [ ] **Step 2: Call `select_ticket_type` after `select_train` in `main.py`**
+- [x] **Step 2: Call `select_ticket_type` after `select_train` in `main.py`**
 
 Replace:
 ```python
@@ -133,7 +133,7 @@ With:
         await asyncio.Event().wait()
 ```
 
-- [ ] **Step 3: Verify existing tests still pass**
+- [x] **Step 3: Verify existing tests still pass**
 
 ```bash
 cd /Users/liuda/VsCodeProjects/JR_ticket_auto
@@ -142,7 +142,7 @@ pytest --tb=short 2>/dev/null || echo "No tests found — OK"
 
 Expected: all pass (or "No tests found — OK")
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add main.py

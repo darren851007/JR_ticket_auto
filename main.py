@@ -8,6 +8,7 @@ from booker.scheduler import wait_until, parse_sale_open_time
 from booker.search_form import fill_search_form
 from booker.train_select import select_train
 from booker.ticket_type_select import select_ticket_type
+from booker.seat_select import select_seat
 
 logger = get_logger("main")
 
@@ -29,7 +30,9 @@ async def main():
         await select_train(page, config)
         logger.info("Train selected — selecting ticket type")
         await select_ticket_type(page, config)
-        logger.info("Ticket type selected — ready for next step")
+        logger.info("Ticket type selected — confirming seat selection")
+        await select_seat(page, config)
+        logger.info("Seat selection confirmed — ready for next step")
         logger.info("Press Ctrl+C to exit (browser stays open).")
         await asyncio.Event().wait()
 

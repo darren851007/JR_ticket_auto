@@ -1,3 +1,4 @@
+import asyncio
 from playwright.async_api import Page
 from booker.selectors import TICKET_TYPE_SELECT
 from utils.logger import get_logger
@@ -13,6 +14,7 @@ async def select_ticket_type(page: Page, config: dict) -> None:
 
     if ticket_type == "regular":
         logger.info("Selecting regular ticket")
+        await asyncio.sleep(0.5)
         await page.locator(TICKET_TYPE_SELECT["regular"]).click()
         await page.wait_for_load_state("domcontentloaded")
         logger.info("Regular ticket selected")

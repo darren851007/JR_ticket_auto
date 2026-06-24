@@ -11,6 +11,7 @@ from booker.ticket_type_select import select_ticket_type
 from booker.seat_select import select_seat
 from booker.confirm_receipt import confirm_receipt
 from booker.agree_terms import agree_terms
+from booker.payment import fill_payment
 
 logger = get_logger("main")
 
@@ -38,8 +39,9 @@ async def main():
         await confirm_receipt(page, config)
         logger.info("Receipt information confirmed — agreeing to terms")
         await agree_terms(page, config)
-        logger.info("Terms agreed — ready for next step")
-        logger.info("Press Ctrl+C to exit (browser stays open).")
+        logger.info("Terms agreed — filling payment")
+        await fill_payment(page, config)
+        logger.info("Purchase submitted — done. Browser left open. Press Ctrl+C to exit.")
         await asyncio.Event().wait()
 
     except KeyboardInterrupt:

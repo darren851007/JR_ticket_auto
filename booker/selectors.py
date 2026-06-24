@@ -50,3 +50,13 @@ AGREEMENT = {
     "checkbox_label": "label[for='ChkAgreement']",
     "confirm_button": "#BtnToNext",
 }
+
+PAYMENT = {
+    "page_anchor":    "#TxtNewEntryCreditCardNumber",
+    "card_number":    "#TxtNewEntryCreditCardNumber",
+    "card_type":      "#cardBrand",
+    "expiry_month":   "#DdlNewEntryExpirationMonth",
+    "expiry_year":    "#TxtNewEntryExpirationYear",
+    "security_code":  "#TxtNewEntrySecurityCode",
+    "submit_button":  "#BtnOrder",
+}

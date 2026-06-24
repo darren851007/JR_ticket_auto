@@ -10,6 +10,7 @@ from booker.train_select import select_train
 from booker.ticket_type_select import select_ticket_type
 from booker.seat_select import select_seat
 from booker.confirm_receipt import confirm_receipt
+from booker.agree_terms import agree_terms
 
 logger = get_logger("main")
 
@@ -35,7 +36,9 @@ async def main():
         await select_seat(page, config)
         logger.info("Seat selection confirmed — confirming receipt information")
         await confirm_receipt(page, config)
-        logger.info("Receipt information confirmed — ready for next step")
+        logger.info("Receipt information confirmed — agreeing to terms")
+        await agree_terms(page, config)
+        logger.info("Terms agreed — ready for next step")
         logger.info("Press Ctrl+C to exit (browser stays open).")
         await asyncio.Event().wait()
 

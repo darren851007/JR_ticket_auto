@@ -44,3 +44,9 @@ RECEIPT_INFO = {
     "page_anchor":    "h2.selService_title:has-text('Receipt Information')",
     "confirm_button": "#BtnToNext",
 }
+
+AGREEMENT = {
+    "page_anchor":    "#ChkAgreement",
+    "checkbox_label": "label[for='ChkAgreement']",
+    "confirm_button": "#BtnToNext",
+}

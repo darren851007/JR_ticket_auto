@@ -28,3 +28,9 @@ TRAIN_SELECT = {
     "expand_button":   "button.ts_DetailTrainCheckBtn",
     "seat_list":       "ul.selService_formTrainSeatSelList",
 }
+
+TICKET_TYPE_SELECT = {
+    "page_anchor": "#BtnBuyATicketForMagneticTicket",
+    "regular":     "#BtnBuyATicketForMagneticTicket",
+    "e_ticket":    "#BtnBuyATicketForICCard",
+}

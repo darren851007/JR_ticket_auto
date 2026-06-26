@@ -1,4 +1,4 @@
-config.yaml
+config*.yaml
 logs/
 screenshots/*.png
 __pycache__/

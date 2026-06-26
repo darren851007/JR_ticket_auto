@@ -1,4 +1,5 @@
 import asyncio
+import sys
 from utils.config_loader import load_config
 from utils.logger import get_logger
 from utils.notify import notify_failure
@@ -16,7 +17,8 @@ from booker.payment import fill_payment
 logger = get_logger("main")
 
 async def main():
-    config = load_config("config.yaml")
+    config_path = sys.argv[1] if len(sys.argv) > 1 else "config.yaml"
+    config = load_config(config_path)
     sale_time = parse_sale_open_time(config["sale_open_time"])
     mgr = BrowserManager()
 

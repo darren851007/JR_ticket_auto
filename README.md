@@ -7,7 +7,7 @@ eki-net（JR East）新幹線車票自動購票程式，使用 Python async Play
 自動執行以下步驟：
 
 1. 登入 eki-net
-2. 等待售票開始時間
+2. 等待售票開始時間（每 5 秒印倒數 log 並重整頁面）
 3. 填寫出發/到達車站、日期、時刻、人數
 4. 選擇指定列車
 5. 選擇票種（目前僅支援一般磁票）
@@ -71,17 +71,32 @@ payment:
   security_code: ""                # 3-4 位數字
 ```
 
-> **注意：** `config.yaml` 包含帳號密碼與信用卡資料，已加入 `.gitignore`，請勿提交至版本控制。
+> **注意：** `config*.yaml` 包含帳號密碼與信用卡資料，已加入 `.gitignore`，請勿提交至版本控制。
 
 ## 執行
 
 ```bash
-python main.py
+python main.py              # 讀取 config.yaml（預設）
+python main.py config2.yaml # 指定設定檔
 ```
 
 程式會開啟 Chromium 視窗，執行完購買流程後瀏覽器保持開啟。按 `Ctrl+C` 結束。
 
 發生錯誤時會在 `screenshots/` 儲存截圖，並於 `logs/` 記錄詳細 log。
+
+### 多帳號同時搶票
+
+不同帳號可以同時開多個行程，各自指定設定檔：
+
+```bash
+# terminal 1
+python main.py config.yaml
+
+# terminal 2
+python main.py config2.yaml
+```
+
+> **注意：** 同一帳號不可同時執行兩個行程，eki-net session 會衝突。
 
 ## 專案結構
 

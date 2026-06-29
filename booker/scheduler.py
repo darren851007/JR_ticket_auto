@@ -17,6 +17,9 @@ async def wait_until(target_dt: datetime, page=None) -> None:
     while True:
         remaining = (target_dt - datetime.now(tz=JST)).total_seconds()
         if remaining <= 0:
+            if page is not None:
+                logger.info("售票時間到，重整頁面")
+                await page.reload()
             break
         logger.info(f"距離開始搶票時間還剩: {remaining:.0f}s")
         if remaining > 10:
